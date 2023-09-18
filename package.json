@@ -7,7 +7,7 @@
     "kill": "echo 886644 | sudo -S kill -9 $(lsof -ti :3210)",
     "server": "bun --watch run ./src/server/index.ts & next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "bun run ./src/server/index.ts & next start",
     "lint": "next lint"
   },
   "dependencies": {
