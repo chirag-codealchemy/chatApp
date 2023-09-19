@@ -38,12 +38,15 @@ const SocketProvider: RootLayoutType = ({ children }) => {
   useEffect(() => {
     setChatList(
       chatList.map((e) => {
+        // @ts-ignore
         if (e._id === id) {
+          // @ts-ignore
           e.unreadCount = 0
         }
         return e
       }),
     )
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id])
 
   useEffect(() => {
@@ -77,9 +80,13 @@ const SocketProvider: RootLayoutType = ({ children }) => {
           case 'NEW_MESSAGE':
             setChatList(
               chatList.map((e) => {
+                // @ts-ignore
                 if (e._id === data.conversation) {
+                  // @ts-ignore
                   e.lastMessage = data
+                  // @ts-ignore
                   if (e._id !== id) {
+                    // @ts-ignore
                     e.unreadCount = (e.unreadCount || 0) + 1
                   }
                 }
@@ -107,6 +114,7 @@ const SocketProvider: RootLayoutType = ({ children }) => {
     } catch (error) {
       console.log('🚀 ~ file: SocketProvider.tsx:18 ~ error:', error)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [url])
 
   return (

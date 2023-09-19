@@ -59,7 +59,7 @@ const runServer = async (firstRun = false) => {
                   }
                 })
               }
-
+              // @ts-ignore
               d.lastMessage = (
                 await messageSchema
                   .find({ conversation: d._id })

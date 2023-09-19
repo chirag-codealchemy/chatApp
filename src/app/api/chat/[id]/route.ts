@@ -34,9 +34,13 @@ export const GET = async (
         .findById(id)
         .populate('users', ['name', 'image'])
         .lean()
+      // @ts-ignore
       if (data && !data?.isGroup) {
+        // @ts-ignore
         data.users?.forEach((e: any) => {
+          // @ts-ignore
           if (String(e._id) !== id) {
+            // @ts-ignore
             data.name = e.name
           }
         })

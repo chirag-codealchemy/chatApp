@@ -44,8 +44,8 @@ export default withAuth(
     callbacks: {
       authorized: ({ token, req }) =>
         !!token ||
-        req.nextUrl.pathname.startsWith('/api') ||
-        req.nextUrl.pathname.startsWith('/login'),
+        req?.nextUrl?.pathname?.startsWith('/api') ||
+        req?.nextUrl?.pathname?.startsWith('/login'),
     },
     // pages: { signIn: '/login' },
   },

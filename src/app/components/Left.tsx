@@ -37,6 +37,7 @@ function Left() {
         {chatList.map((e, i) => {
           return (
             <Link
+              // @ts-ignore
               href={`/${e?._id}`}
               key={`CHAT_LIST_${i}`}
               className="m-2 flex items-center "
@@ -49,18 +50,23 @@ function Left() {
                 className="h-12 w-12 rounded-full"
               />
               <div className="w-full">
+                {/* @ts-ignore */}
                 <div className="px-2 text-lg font-semibold ">{e?.name}</div>
+                {/* @ts-ignore */}
                 <div className="px-2 text-sm">{e?.lastMessage?.content}</div>
               </div>
               <div className="flex h-full flex-col items-end justify-between ">
                 <div className="whitespace-nowrap px-2 text-sm ">
+                  {/* @ts-ignore */}
                   {moment(e?.lastMessage?.updatedAt).isBefore(
                     moment().add(-1, 'day'),
-                  )
+                  ) // @ts-ignore
                     ? moment(e?.lastMessage?.updatedAt).format('hh:mm')
-                    : moment(e?.lastMessage?.updatedAt).format('DD/MM/YY')}
+                    : // @ts-ignore
+                      moment(e?.lastMessage?.updatedAt).format('DD/MM/YY')}
                 </div>
                 <div className="mb-1 rounded-full bg-red-500 px-2 text-xs ">
+                  {/* @ts-ignore */}
                   {e?.unreadCount || null}
                 </div>
               </div>

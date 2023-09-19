@@ -8,7 +8,9 @@ const Page = () => {
   const searchParams = useSearchParams()
   const router = useRouter()
   const login = () => {
+    // @ts-ignore
     const email = document.getElementById('email')?.value
+    // @ts-ignore
     const password = document.getElementById('password')?.value
     const callbackUrl = searchParams.get('callbackUrl') || '/'
     signIn('credentials', { email, password, redirect: false })

@@ -7,7 +7,8 @@
     "kill": "echo 886644 | sudo -S kill -9 $(lsof -ti :3210)",
     "server": "bun --watch run ./src/server/index.ts & next dev",
     "build": "next build",
-    "start": "bun run ./src/server/index.ts & next start",
+    "start": "next start",
+    "deploy": " next start & bun run ./src/server/index.ts",
     "lint": "next lint"
   },
   "dependencies": {
@@ -18,6 +19,7 @@
     "autoprefixer": "10.4.15",
     "eslint": "8.49.0",
     "eslint-config-next": "13.4.19",
+    "fs": "^0.0.1-security",
     "moment": "^2.29.4",
     "mongodb": "^6.0.0",
     "mongoose": "^7.5.1",

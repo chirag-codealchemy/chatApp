@@ -16,17 +16,20 @@ const UserListModal = () => {
           <div
             key={i}
             onClick={() =>
+              // @ts-ignore
               socket?.send(JSON.stringify({ type: 'NEW_CHAT', data: e?._id }))
             }
             className="m-2 flex w-11/12 items-center"
           >
             <Image
+              // @ts-ignore
               src={e?.image}
               alt="img"
               width={32}
               height={32}
               className="rounded-full"
             />
+            {/* @ts-ignore */}
             <div className="ml-4">{e?.name}</div>
           </div>
         ))}

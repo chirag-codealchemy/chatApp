@@ -22,8 +22,10 @@ const Page = () => {
   return (
     <div className="flex h-screen max-h-screen w-full flex-col bg-slate-50">
       <div className="flex w-full items-center bg-slate-100 text-2xl">
+        {/* @ts-ignore */}
         {chat?.image && (
           <Image
+            // @ts-ignore
             src={chat?.image}
             width={32}
             height={32}
@@ -31,6 +33,7 @@ const Page = () => {
             alt="img"
           />
         )}
+        {/* @ts-ignore */}
         {chat?.name}
       </div>
       <div className="flex h-screen flex-col overflow-x-scroll [&::-webkit-scrollbar]:hidden ">
@@ -38,14 +41,19 @@ const Page = () => {
           <div
             ref={chatRef}
             key={e?.content + i}
-            className={`float-right m-1 w-fit max-w-xs rounded-full bg-red-200 px-3 py-1 text-sm 
-            ${e.user === session?.user?.id ? 'self-end' : 'self-start'}
-            `}
+            className={
+              // @ts-ignore
+              e.user === session?.user?.id
+                ? 'self-end'
+                : 'self-start' +
+                  `float-right m-1 w-fit max-w-xs rounded-full bg-red-200 px-3 py-1 text-sm `
+            }
           >
             {e?.content}
           </div>
         ))}
       </div>
+      {/* @ts-ignore */}
       <InputBox chatId={chat?.id} />
     </div>
   )

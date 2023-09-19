@@ -11,13 +11,16 @@ function InputBox() {
   const { socket } = useContext(SocketContext)
 
   const sendMessage = () => {
+    // @ts-ignore
     if (input?.current?.value) {
       socket?.send(
         JSON.stringify({
           type: 'NEW_MESSAGE',
+          // @ts-ignore
           data: { message: input?.current?.value, id },
         }),
       )
+      // @ts-ignore
       input.current.value = ''
     }
   }
