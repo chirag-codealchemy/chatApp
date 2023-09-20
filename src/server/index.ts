@@ -164,7 +164,6 @@ const runServer = async (firstRun = false) => {
         },
         close(ws, code, reason) {},
       },
-      port: 3210,
     })
   } catch (error) {
     console.log('🚀 ~ file: index.ts:4 ~ error:', error)

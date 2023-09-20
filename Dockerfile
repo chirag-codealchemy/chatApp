@@ -1,21 +1,33 @@
-# FROM oven/bun:1.0
-FROM node:20
-# WORKDIR /Users/pc/Documents/JS_Runtimes/Bun/chatApp/
-WORKDIR /
-COPY . .
-RUN ls
-# RUN yarn install 
-# RUN yarn next build
-EXPOSE 3000
-EXPOSE 10000
-# ENTRYPOINT ["bun", "dev"]
-CMD ["yarn", "start"]
 
-# FROM node:16-alpine
-# RUN mkdir -p /app
-# WORKDIR /app
+# for bun
+FROM oven/bun:1.0 
+# for node
+# FROM node:20
+
+WORKDIR /
+
+COPY /src/server .
+COPY /.env .
+COPY ./bun.json ./package.json
+
+RUN bun install 
+
+EXPOSE 10000
+
+# ENTRYPOINT ["yarn", "dev"]
+CMD ["bun", "run", "index.ts"]
+
+# # -----------------------------------------
+
+# # FROM oven/bun:1.0 
+# FROM node
+
 # COPY . .
-# RUN npm install
-# RUN npm run build
+
+# EXPOSE 10000
 # EXPOSE 3000
-# CMD ["npm", "start"]
+# # RUN yarn 
+# # RUN yarn next build
+
+# CMD ["yarn", "start"]
+
